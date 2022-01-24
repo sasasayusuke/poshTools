@@ -9,6 +9,7 @@ enum UrlCode {
     Pleasanter
     Redmine
     SBI
+    BitFlyer
     Trello
     Wikipedia
 }
@@ -54,6 +55,9 @@ function global:getUrlCode {
         }
         SBI {
             $url = "https://www.sbisec.co.jp/ETGate"
+        }
+        BitFlyer {
+            $url = "https://bitflyer.com/ja-jp/ex/Home"
         }
         Wikipedia {
             $url = "https://ja.wikipedia.org/wiki/"
