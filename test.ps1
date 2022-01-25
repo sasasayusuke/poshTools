@@ -50,7 +50,7 @@ function global:execOneCockpit {
     } else {
         getDirCode Back -Change
         .\main.py
-        Start-Process C:\Users\Y-Sasaki\Desktop\VPNConnect.exe
+        getBatCode -BatCode VPNConnect -Execute
         Start-Process http://127.0.0.1:5000/
     }
 }
