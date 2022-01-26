@@ -8,6 +8,7 @@ enum DirCode {
     Git
     ImageInternal
     ImageExternal
+    Personal
     PowerShell
     Svn
     Temporary
@@ -89,6 +90,15 @@ function global:getDirCode {
             }
             elseif ($MAIN_USER -eq "Dynabook") {
                 $dir = "C:\Users\pc\Downloads"
+            }
+        }
+        Personal {
+            if ($MAIN_USER -eq "Vaio") {
+                getBatCode -BatCode VPNConnect -Execute
+                $dir = "\\192.168.10.37\share\99.å¬êl\ç˘ñÿóEâÓ\åˆäJ\"
+            }
+            elseif ($MAIN_USER -eq "Dynabook") {
+                $dir = ""
             }
         }
         Current {

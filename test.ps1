@@ -13,7 +13,7 @@ function global:araidashi {
 
 
     $target = getContent -File "\\172.22.136.159\共有\00_共通\06_個人フォルダ\笹木\外部印刷リスト.txt" -Unique
-    $target | %{
+    $target | ForEach-Object {
         Write-Output $_
         ff $_ -PathCode MyBatis
         ff $_ -PathCode Migration -Include sql
