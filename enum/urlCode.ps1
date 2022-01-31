@@ -33,19 +33,22 @@ function global:getUrlCode {
             $url = "https://s2.kingtime.jp/independent/recorder/personal/"
         }
         Pleasanter {
+            getBatCode -BatCode VPNConnect -Execute
             $url = "https://ssj-pleasanter-01.sdt-test.work/items/5419/index"
+        }
+        Redmine {
+            getBatCode -BatCode VPNConnect -Execute
+            $url = "https://ss-learning.sdt-test.work/redmine/"
+        }
+        Kompira {
+            getBatCode -BatCode VPNConnect -Execute
+            $url = "https://autolabo01.sdt-test.work/"
         }
         Github {
             $url = "https://github.com/sasasayusuke/"
         }
         Trello {
             $url = "https://trello.com/b/i4wFrPb9/todo"
-        }
-        Kompira {
-            $url = "https://autolabo01.sdt-test.work/"
-        }
-        Redmine {
-            $url = "https://ss-learning.sdt-test.work/redmine/"
         }
         Mirai {
             $url = "https://miraitranslate.com/trial"
