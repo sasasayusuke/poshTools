@@ -1,4 +1,5 @@
 enum UrlCode {
+    BitFlyer
     Box
     Empty
     Garoon
@@ -9,7 +10,6 @@ enum UrlCode {
     Pleasanter
     Redmine
     SBI
-    BitFlyer
     Trello
     Wikipedia
 }
