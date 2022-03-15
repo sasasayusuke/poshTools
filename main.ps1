@@ -75,9 +75,9 @@ Get-ChildItem $MAIN_DIRECTORY_FUNCTION -Recurse | extractExt -Ext1 PS1 | ForEach
     writeMessageHost ($_.FullName + ' を読み込みます')
 }
 
-# $URL_LIST         = Get-Content \\172.22.136.159\共有\00_共通\06_個人フォルダ\笹木\URL.txt -Encoding UTF8
-# $NUMBER_LIST      = Get-Content C:\Users\jntPCadmin\Desktop\work\powershell\setting\number.txt -Encoding UTF8
-# $IDIOM_LIST       = Get-Content C:\Users\jntPCadmin\Desktop\work\powershell\setting\idiom.txt -Encoding UTF8
+$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\product\sakura\memo.txt" -Encoding Default
+$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\product\sakura\article.txt" -Encoding UTF8
+
 Set-Location $ORIGINALLY_DIRECTORY
 
 # 使用端末判定
