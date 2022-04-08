@@ -23,7 +23,7 @@ function global:getUrlCode {
         [ArgumentCompleter({getAllUrlCode})][ValidateScript({$_ -in $(getAllUrlCode)})] $UrlCode = "Garoon",
         [switch] $Copy = $false,
         [switch] $Open = $false,
-        [String] $Word
+        [String] $Search
     )
     switch ($urlCode) {
         Garoon {
@@ -33,8 +33,12 @@ function global:getUrlCode {
             $url = "https://s2.kingtime.jp/independent/recorder/personal/"
         }
         Pleasanter {
-            getBatCode -BatCode VPNConnect -Execute
-            $url = "https://ssj-pleasanter-01.sdt-test.work/items/5419/index"
+            if ([string]::IsNullOrEmpty($Search)) {
+                getBatCode -BatCode VPNConnect -Execute
+                $url = "https://ssj-pleasanter-01.sdt-test.work/items/5419/index"
+            } else {
+                $url = "https://pleasanter.org/manual?search=" + $Search
+            }
         }
         Redmine {
             getBatCode -BatCode VPNConnect -Execute
@@ -52,6 +56,9 @@ function global:getUrlCode {
         }
         Mirai {
             $url = "https://miraitranslate.com/trial"
+            if (![string]::IsNullOrEmpty($Search)) {
+                $url += "/#ja/en/" + $Search
+            }
         }
         Box {
             $url = "https://app.box.com/folder/0"
@@ -64,8 +71,8 @@ function global:getUrlCode {
         }
         Wikipedia {
             $url = "https://ja.wikipedia.org/wiki/"
-            if (![string]::IsNullOrEmpty($Word)) {
-                $url += $Word
+            if (![string]::IsNullOrEmpty($Search)) {
+                $url += $Search
             }
         }
         Empty {
