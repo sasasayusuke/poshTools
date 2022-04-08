@@ -75,14 +75,14 @@ Get-ChildItem $MAIN_DIRECTORY_FUNCTION -Recurse | extractExt -Ext1 PS1 | ForEach
     writeMessageHost ($_.FullName + ' Çì«Ç›çûÇ›Ç‹Ç∑')
 }
 
-$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\product\sakura\memo.txt" -Encoding Default
-$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\product\sakura\article.txt" -Encoding UTF8
+$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
+$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
 
 Set-Location $ORIGINALLY_DIRECTORY
 
 # égópí[ññîªíË
 Set-Variable -Scope global -Name MAIN_USER -Value $STR_NTH
-foreach($user in getAllUserCode){
+foreach($user in getAllUserCode) {
     getCode -UserCode $user -Set
     if ((getCode -DirCode PowerShell) -eq $MAIN_DIRECTORY) {
         writeMessageHost ('setUser OK')
