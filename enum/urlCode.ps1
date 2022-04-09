@@ -11,6 +11,7 @@ enum UrlCode {
     Redmine
     SBI
     Trello
+    Weblio
     Wikipedia
 }
 
@@ -68,6 +69,12 @@ function global:getUrlCode {
         }
         BitFlyer {
             $url = "https://bitflyer.com/ja-jp/ex/Home"
+        }
+        Weblio {
+            $url = "https://thesaurus.weblio.jp/content/"
+            if (![string]::IsNullOrEmpty($Search)) {
+                $url += $Search
+            }
         }
         Wikipedia {
             $url = "https://ja.wikipedia.org/wiki/"
