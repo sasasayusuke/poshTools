@@ -6,10 +6,10 @@ function global:getCalculatePattern2x2 {
     )
 
 	if (($a -lt 10) -or ($a -ge 100)) {
-		writeMessageHost -Break "‘æˆêˆø”‚ª2Œ…‚Å‚Í‚ ‚è‚Ü‚¹‚ñ"
+		writeMessage -Break "‘æˆêˆø”‚ª2Œ…‚Å‚Í‚ ‚è‚Ü‚¹‚ñ"
 	}
 	if (($b -lt 10) -or ($b -ge 100)) {
-		writeMessageHost -Break "‘æ“ñˆø”‚ª2Œ…‚Å‚Í‚ ‚è‚Ü‚¹‚ñ"
+		writeMessage -Break "‘æ“ñˆø”‚ª2Œ…‚Å‚Í‚ ‚è‚Ü‚¹‚ñ"
 	}
 
 	$a1st = $a % 10

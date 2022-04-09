@@ -55,28 +55,31 @@ $MAIN_DIRECTORY_FUNCTION    = Join-Path $MAIN_DIRECTORY $FOLDER_FUNCTION
 
 Set-Location $MAIN_DIRECTORY
 
+$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
+writeMessage $memo
+$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
+writeMessage $article_site
+
 @('.\common.ps1'
 , '.\filter.ps1'
 , '.\test.ps1'
 ) | ForEach-Object {
     . $_
-    writeMessageHost ((Get-Item $_).FullName + ' を読み込みます')
+    writeMessage ((Get-Item $_).FullName + ' を読み込みます')
 }
 
 Get-ChildItem $MAIN_DIRECTORY_ENUM -Recurse | ForEach-Object {
     # ファイルの場合の処理
     . $_.FullName
-    writeMessageHost ($_.FullName + ' を読み込みます')
+    writeMessage ($_.FullName + ' を読み込みます')
 }
 
 Get-ChildItem $MAIN_DIRECTORY_FUNCTION -Recurse | extractExt -Ext1 PS1 | ForEach-Object {
     # ファイルの場合の処理
     . $_.FullName
-    writeMessageHost ($_.FullName + ' を読み込みます')
+    writeMessage ($_.FullName + ' を読み込みます')
 }
 
-$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
-$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
 
 Set-Location $ORIGINALLY_DIRECTORY
 
@@ -85,10 +88,10 @@ Set-Variable -Scope global -Name MAIN_USER -Value $STR_NTH
 foreach($user in getAllUserCode) {
     getCode -UserCode $user -Set
     if ((getCode -DirCode PowerShell) -eq $MAIN_DIRECTORY) {
-        writeMessageHost ('setUser OK')
+        writeMessage ('setUser OK')
         break
     } else {
-        writeMessageHost ('setUser NG')
+        writeMessage ('setUser NG')
     }
 }
 

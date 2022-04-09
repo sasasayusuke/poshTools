@@ -86,7 +86,7 @@ function global:getUrlCode {
             $url = $SYMBOL_EMPTY
         }
         default {
-            writeMessageHost "invalid argument" -Break
+            writeMessage "invalid argument" -Break
         }
     }
     if ($Copy) {

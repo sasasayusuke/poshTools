@@ -42,7 +42,7 @@ function global:loadFile {
         moveItem $file[$i].Name $destinationPath -Force
     }
     if ($Log) {
-        writeMessageHost ($path + " => " + $destinationPath) -Warn
+        writeMessage ($path + " => " + $destinationPath) -Warn
         $file | Select-Object fullname, Length, LastWriteTime
     }
 }

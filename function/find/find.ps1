@@ -76,7 +76,7 @@ function global:find {
 
     $result = (Get-ChildItem @findSplatting).FullName
     if ([string]::IsNullOrEmpty($result)) {
-        writeMessageHost "No Result" -Warn
+        writeMessage "No Result" -Warn
         return
     }
 

@@ -42,7 +42,7 @@ function global:confirmNumHost {
     try {
         [Int]$responce = confirmHost @splatting
     } catch {
-        writeMessageHost $ErrorMessage -Break
+        writeMessage $ErrorMessage -Break
     }
 
     return $responce
@@ -73,7 +73,7 @@ function global:confirmYesNoHost {
     try {
         [ValidateSet("y","Y","n","N")]$responce = confirmHost @splatting
     } catch {
-        writeMessageHost $ErrorMessage -Break
+        writeMessage $ErrorMessage -Break
     }
 
     return convertYesNo($responce)
@@ -93,7 +93,7 @@ function global:convertYesNo ($YesNo) {
             return $false
         }
         default {
-            writeMessageHost "Y または N ではありません" -Break
+            writeMessage "Y または N ではありません" -Break
         }
     }
 }
@@ -121,7 +121,7 @@ function global:getContent {
     if (Test-Path $File) {
         $result = Get-Content -Path $File -Encoding $Encode
     } else {
-        writeMessageHost "指定ファイルは存在しません" -Break
+        writeMessage "指定ファイルは存在しません" -Break
     }
 
     if ($Unique) {
@@ -171,7 +171,7 @@ function global:getPath {
 		$path = Join-Path $Absolute $Relative
     }
     if (!(Test-Path $path)) {
-        writeMessageHost "Path が不正です" -Break
+        writeMessage "Path が不正です" -Break
     }
 
     return $path
@@ -241,15 +241,15 @@ function global:outputText {
 
     $output = Join-Path $outputPath $Title
     $contents > $output
-    writeMessageHost ($output + " を出力しました。")
+    writeMessage ($output + " を出力しました。")
 }
 
-# Hostに汎用メッセージ出力
+# 汎用メッセージ出力
 #
 # @param    Message             メッセージ
 # @param    Break               エラーフラグ
 # @param    Warn                警告フラグ
-function global:writeMessageHost {
+function global:writeMessage {
     Param(
         [parameter(mandatory = $true)] $Message,
         [switch] $Break = $false,
@@ -257,12 +257,12 @@ function global:writeMessageHost {
     )
 
     if ($Break) {
-        Write-Host (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message -BackgroundColor Red -ForegroundColor white
+        Write-Output (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message -BackgroundColor Red -ForegroundColor white
         break
     } elseif ($Warn) {
-        Write-Host (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message -BackgroundColor Yellow -ForegroundColor Black
+        Write-Output (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message -BackgroundColor Yellow -ForegroundColor Black
     } else {
-        Write-Host (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message
+        Write-Output (Get-PSCallStack)[1].Location $SYMBOL_SEMICOLON $Message
     }
 }
 
@@ -297,7 +297,7 @@ function global:moveItem {
             Move-Item @splatting
         } else {
             $warnMessage = $Path + "は存在しません"
-            writeMessageHost $warnMessage -Warn
+            writeMessage $warnMessage -Warn
         }
     } else {
         $confirmMessage = "目的パスが存在しません " + $Destination + " を作成して " + $Path + " を移動しますか"
@@ -308,7 +308,7 @@ function global:moveItem {
             moveItem @splatting
         } else {
             $errorMessage = "終了しました"
-            writeMessageHost $errorMessage -Break
+            writeMessage $errorMessage -Break
         }
     }
 }
@@ -407,7 +407,7 @@ function global:createRandomStr {
             $reg1 = "[^a-z]"
             $reg2 = ""
         } default {
-            writeMessageHost "Not matched. CreateRandomStr" -Break
+            writeMessage "Not matched. CreateRandomStr" -Break
         }
     }
     $ret = ""
