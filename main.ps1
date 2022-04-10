@@ -55,11 +55,6 @@ $MAIN_DIRECTORY_FUNCTION    = Join-Path $MAIN_DIRECTORY $FOLDER_FUNCTION
 
 Set-Location $MAIN_DIRECTORY
 
-$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
-writeMessage $memo
-$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
-writeMessage $article_site
-
 @('.\common.ps1'
 , '.\filter.ps1'
 , '.\test.ps1'
@@ -67,6 +62,11 @@ writeMessage $article_site
     . $_
     writeMessage ((Get-Item $_).FullName + ' ‚ğ“Ç‚İ‚İ‚Ü‚·')
 }
+
+$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
+writeMessage $memo
+$article_site  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
+writeMessage $article_site
 
 Get-ChildItem $MAIN_DIRECTORY_ENUM -Recurse | ForEach-Object {
     # ƒtƒ@ƒCƒ‹‚Ìê‡‚Ìˆ—
