@@ -10,6 +10,14 @@
 			"request": "launch",
 			"script": "${file}",
 			"cwd": "${file}"
-		}
+		},
+		{
+            "name": "Attach to ClearScript V8 on port 18054",
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "address": "shinseisha.sdt-autolabo.com",
+            "port": 18054
+        }
 	]
 }
