@@ -1,17 +1,12 @@
 enum DirCode {
-    Back
     Book
     Current
     Download
     Empty
-    Front
     Git
     ImageInternal
     ImageExternal
-    Personal
     PowerShell
-    Svn
-    Temporary
     Test
     Tool
 }
@@ -28,18 +23,15 @@ function global:getDirCode {
     switch ($DirCode) {
         Git {
             if ($MAIN_USER -eq "Vaio") {
-                $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\git"
+                $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\product\github"
             }
             elseif ($MAIN_USER -eq "Dynabook") {
                 $dir = "C:\Users\sasakiy\Desktop\sasaki\git"
             }
         }
-        Svn {
-            $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\svn"
-        }
         PowerShell {
             if ($MAIN_USER -eq "Vaio") {
-                $dir = (getDirCode -DirCode Git) + "\posh"
+                $dir = (getDirCode -DirCode Git) + "\poshTools"
             }
             elseif ($MAIN_USER -eq "Dynabook") {
                 $dir = "C:\Users\pc\Desktop\posh-master"
@@ -47,12 +39,6 @@ function global:getDirCode {
         }
         Book {
             $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\book"
-        }
-        Front {
-            $dir = (getDirCode -DirCode Svn) + "\onecockpit\フロント\frontend\src"
-        }
-        Back {
-            $dir = (getDirCode -DirCode Svn) + "\onecockpit\フロント\backend"
         }
         Tool {
             $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\tool"
@@ -79,26 +65,12 @@ function global:getDirCode {
                 $dir = "C:\Users\pc\Desktop\test"
             }
         }
-        Temporary {
-            if ($MAIN_USER -eq "Vaio") {
-                $dir = "C:\Users\Y-Sasaki\Desktop\temp"
-            }
-        }
         Download {
             if ($MAIN_USER -eq "Vaio") {
                 $dir = "C:\Users\Y-sasaki\Downloads"
             }
             elseif ($MAIN_USER -eq "Dynabook") {
                 $dir = "C:\Users\pc\Downloads"
-            }
-        }
-        Personal {
-            if ($MAIN_USER -eq "Vaio") {
-                getBatCode -BatCode VPNConnect -Execute
-                $dir = "\\192.168.10.37\share\99.個人\笹木勇介\公開\"
-            }
-            elseif ($MAIN_USER -eq "Dynabook") {
-                $dir = ""
             }
         }
         Current {

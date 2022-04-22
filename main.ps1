@@ -63,9 +63,9 @@ Set-Location $MAIN_DIRECTORY
     writeMessage ((Get-Item $_).FullName + ' Çì«Ç›çûÇ›Ç‹Ç∑')
 }
 
-$memos = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\memo.txt" -Encoding Default
+$memos = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\memo.txt" -Encoding Default
 writeMessage $memos
-$article_sites  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\memo\article.txt" -Encoding UTF8
+$article_sites  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\article.txt" -Encoding UTF8
 writeMessage $article_sites
 $frequently_url = "https://shinseisha.sdt-autolabo.com/items/41921/edit"
 writeMessage $frequently_url
