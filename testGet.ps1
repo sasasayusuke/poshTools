@@ -11,6 +11,4 @@ $params = @{
 }
 
 $post = Invoke-RestMethod @params
-$post.Response.Data | % {$_.CheckHash.CheckA}
-
-Stop-Process
+$post.Response.Data
