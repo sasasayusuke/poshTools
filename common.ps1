@@ -428,3 +428,4 @@ function global:createRandomStr {
     # w’è•¶š”‚É‚·‚é
     return $ret.Substring(0, $byteSize)
 }
+

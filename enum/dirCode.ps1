@@ -7,6 +7,7 @@ enum DirCode {
     ImageInternal
     ImageExternal
     PowerShell
+    Project
     Test
     Tool
 }
@@ -60,6 +61,14 @@ function global:getDirCode {
         Test {
             if ($MAIN_USER -eq "Vaio") {
                 $dir = "C:\Users\Y-Sasaki\Desktop\test"
+            }
+            elseif ($MAIN_USER -eq "Dynabook") {
+                $dir = "C:\Users\pc\Desktop\test"
+            }
+        }
+        Project {
+            if ($MAIN_USER -eq "Vaio") {
+                $dir = "C:\Users\Y-Sasaki\Desktop\sasaki\project"
             }
             elseif ($MAIN_USER -eq "Dynabook") {
                 $dir = "C:\Users\pc\Desktop\test"
