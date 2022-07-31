@@ -63,10 +63,12 @@ Set-Location $MAIN_DIRECTORY
     writeMessage ((Get-Item $_).FullName + ' ‚ğ“Ç‚İ‚İ‚Ü‚·')
 }
 
-$memos = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\memo.txt" -Encoding Default
-writeMessage $memos
-$article_sites  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\article.txt" -Encoding UTF8
-writeMessage $article_sites
+$memo = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\memo.txt" -Encoding Default
+writeMessage $memo
+$article  = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\article.txt" -Encoding UTF8
+writeMessage $article
+$path = Get-Content "C:\Users\Y-Sasaki\Desktop\sasaki\book\path.txt" -Encoding Default
+writeMessage $path
 
 Get-ChildItem $MAIN_DIRECTORY_ENUM -Recurse | ForEach-Object {
     # ƒtƒ@ƒCƒ‹‚Ìê‡‚Ìˆ—
